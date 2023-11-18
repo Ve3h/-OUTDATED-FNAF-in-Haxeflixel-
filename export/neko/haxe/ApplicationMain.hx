@@ -35,10 +35,10 @@ class ApplicationMain
 		ManifestResources.init(config);
 		#end
 
-		app.meta["build"] = "2";
+		app.meta["build"] = "4";
 		app.meta["company"] = "HaxeFlixel";
 		app.meta["file"] = "FNAF";
-		app.meta["name"] = "6 hours at Ron: Every FNAF Fangame";
+		app.meta["name"] = "Five Nights at Freddy's";
 		app.meta["packageName"] = "com.example.myapp";
 		app.meta["version"] = "0.0.1";
 
@@ -52,7 +52,7 @@ class ApplicationMain
 			borderless: false,
 			// display: 0,
 			element: null,
-			frameRate: 60,
+			frameRate: 64,
 			#if !web fullscreen: false, #end
 			height: 720,
 			hidden: #if munit true #else false #end,
@@ -60,7 +60,7 @@ class ApplicationMain
 			minimized: false,
 			parameters: {},
 			resizable: true,
-			title: "6 hours at Ron: Every FNAF Fangame",
+			title: "Five Nights at Freddy's",
 			width: 1280,
 			x: null,
 			y: null,
@@ -102,10 +102,10 @@ class ApplicationMain
 		app.createWindow(attributes);
 		
 		#elseif air
-		app.window.title = "6 hours at Ron: Every FNAF Fangame";
+		app.window.title = "Five Nights at Freddy's";
 		#else
 		app.window.context.attributes.background = 0;
-		app.window.frameRate = 60;
+		app.window.frameRate = 64;
 		#end
 
 		var preloader = getPreloader();
