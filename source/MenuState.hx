@@ -1,7 +1,10 @@
 package;
 
+import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;
+// import flixel.input.keyboard.FlxKeys;
+import lime.system.System;
 
 class MenuState extends FlxState
 {
@@ -9,6 +12,8 @@ class MenuState extends FlxState
 	// var static :FlxSprite; for some reason this doesnt work.
 	var statical:FlxSprite;
 	var tittle:FlxSprite;
+	var newgame:FlxSprite;
+	var continuee:FlxSprite;
 
 	override public function create()
 	{
@@ -24,18 +29,33 @@ class MenuState extends FlxState
 		tittle = new FlxSprite(0, 0);
 
 		tittle.loadGraphic('assets/images/mainmenu/444.png');
-		tittle.y = 42;
-		tittle.x = 6;
-
+		tittle.x = 59;
+		tittle.y = 92;
 		// tittle.setGraphicSize(500, 400);
 
 		add(tittle);
+
+		// adding newgame
+		newgame = new FlxSprite(0, 0);
+		newgame.loadGraphic('assets/images/mainmenu/448.png');
+		newgame.x = 59;
+		newgame.y = 379;
+
+		add(newgame);
+
+		// adding newgame
+		continuee = new FlxSprite(0, 0);
+		continuee.loadGraphic('assets/images/mainmenu/449.png');
+		continuee.x = 59;
+		continuee.y = 453;
+
+		add(continuee);
 
 		// adding static
 		statical = new FlxSprite(0, 0);
 
 		statical.loadGraphic('assets/images/mainmenu/static.png', true);
-		statical.animation.add('static', [0, 1, 2, 3, 4, 5, 6,], 18, true);
+		statical.animation.add('static', [0, 1, 2, 3, 4, 5, 6], 18, true);
 		statical.animation.play('static', true);
 
 		statical.screenCenter();
@@ -49,6 +69,11 @@ class MenuState extends FlxState
 
 	override public function update(elapsed:Float)
 	{
+		if (FlxG.keys.justPressed.ESCAPE)
+		{
+			System.exit(0);
+		}
+
 		super.update(elapsed);
 	}
 }
