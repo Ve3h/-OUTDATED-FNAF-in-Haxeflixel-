@@ -20,6 +20,17 @@ class MenuState extends FlxState
 
 		add(freddy);
 
+		// adding text
+		tittle = new FlxSprite(0, 0);
+
+		tittle.loadGraphic('assets/images/mainmenu/444.png');
+		tittle.y = 42;
+		tittle.x = 6;
+
+		// tittle.setGraphicSize(500, 400);
+
+		add(tittle);
+
 		// adding static
 		statical = new FlxSprite(0, 0);
 
@@ -33,14 +44,6 @@ class MenuState extends FlxState
 
 		add(statical);
 
-		// adding text
-		tittle = new FlxSprite(0, 0);
-
-		tittle.loadGraphic('assets/images/mainmenu/444.png');
-		tittle.screenCenter(Y);
-		tittle.x = 100;
-
-		add(tittle);
 		super.create();
 	}
 
