@@ -14,6 +14,7 @@ class MenuState extends FlxState
 	var tittle:FlxSprite;
 	var newgame:FlxSprite;
 	var continuee:FlxSprite;
+	var selector:FlxSprite;
 
 	override public function create()
 	{
@@ -35,6 +36,16 @@ class MenuState extends FlxState
 
 		add(tittle);
 
+		// adding selector
+		selector = new FlxSprite(0, 0);
+
+		selector.loadGraphic('assets/images/mainmenu/450.png');
+		selector.x = 10;
+		selector.y = 383;
+
+		add(selector);
+		selector.visible = false;
+
 		// adding newgame
 		newgame = new FlxSprite(0, 0);
 		newgame.loadGraphic('assets/images/mainmenu/448.png');
@@ -43,7 +54,7 @@ class MenuState extends FlxState
 
 		add(newgame);
 
-		// adding newgame
+		// adding continue
 		continuee = new FlxSprite(0, 0);
 		continuee.loadGraphic('assets/images/mainmenu/449.png');
 		continuee.x = 59;
