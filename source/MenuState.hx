@@ -1,9 +1,11 @@
 package;
 
 import flixel.FlxG;
+import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.FlxState;
 // import flixel.input.keyboard.FlxKeys;
+import flixel.input.mouse.FlxMouseEvent;
 import lime.system.System;
 
 class MenuState extends FlxState
@@ -15,6 +17,7 @@ class MenuState extends FlxState
 	var newgame:FlxSprite;
 	var continuee:FlxSprite;
 	var selector:FlxSprite;
+	var object:FlxObject;
 
 	override public function create()
 	{
@@ -51,10 +54,9 @@ class MenuState extends FlxState
 		newgame.loadGraphic('assets/images/mainmenu/448.png');
 		newgame.x = 59;
 		newgame.y = 379;
-
 		add(newgame);
-
 		// adding continue
+
 		continuee = new FlxSprite(0, 0);
 		continuee.loadGraphic('assets/images/mainmenu/449.png');
 		continuee.x = 59;
@@ -84,6 +86,20 @@ class MenuState extends FlxState
 		{
 			System.exit(0);
 		}
+
+		// selecting thinggys
+		if (FlxG.mouse.overlaps(newgame, camera))
+		{
+			selector.visible = true;
+			selector.y = 383;
+		}
+		else if (FlxG.mouse.overlaps(continuee, camera))
+		{
+			selector.visible = true;
+			selector.y = 459;
+		}
+		else
+			selector.visible = false;
 
 		super.update(elapsed);
 	}
