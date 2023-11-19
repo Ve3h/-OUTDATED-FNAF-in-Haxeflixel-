@@ -5,7 +5,6 @@ import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.FlxState;
 // import flixel.input.keyboard.FlxKeys;
-import flixel.input.mouse.FlxMouseEvent;
 import lime.system.System;
 
 class MenuState extends FlxState
@@ -21,6 +20,8 @@ class MenuState extends FlxState
 
 	override public function create()
 	{
+		FlxG.sound.playMusic('assets/sounds/darkness music.wav', 0.8, true);
+
 		// adding freddy
 		freddy = new FlxSprite(0, 0);
 
@@ -85,6 +86,7 @@ class MenuState extends FlxState
 		if (FlxG.keys.justPressed.ESCAPE)
 		{
 			System.exit(0);
+			trace('bye');
 		}
 
 		// selecting thinggys
@@ -92,14 +94,30 @@ class MenuState extends FlxState
 		{
 			selector.visible = true;
 			selector.y = 383;
+			// FlxG.sound.play('assets/sounds/blip3.wav'); need to fix
+			// trace('IT');
 		}
 		else if (FlxG.mouse.overlaps(continuee, camera))
 		{
 			selector.visible = true;
 			selector.y = 459;
+			// FlxG.sound.play('assets/sounds/blip3.wav'); need to fix
+			// trace('WORKS');
 		}
 		else
 			selector.visible = false;
+
+		// Changing states
+		if (FlxG.mouse.pressed && FlxG.mouse.overlaps(newgame, camera))
+		{
+			FlxG.switchState(new LoadingState());
+			FlxG.sound.play('assets/sounds/blip3.wav');
+		}
+		else if (FlxG.mouse.pressed && FlxG.mouse.overlaps(continuee, camera))
+		{
+			FlxG.switchState(new LoadingState());
+			FlxG.sound.play('assets/sounds/blip3.wav');
+		}
 
 		super.update(elapsed);
 	}
