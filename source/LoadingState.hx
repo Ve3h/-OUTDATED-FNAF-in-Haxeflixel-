@@ -11,7 +11,8 @@ class LoadingState extends FlxState
 
 	override public function create()
 	{
-		FlxG.sound.pause();
+		FlxG.sound.play('assets/sounds/blip3.wav');
+		// FlxG.sound.pause();
 
 		loadsprite = new FlxSprite(0, 0);
 		loadsprite.loadGraphic('assets/images/loading/482.png');

@@ -111,12 +111,12 @@ class MenuState extends FlxState
 		if (FlxG.mouse.pressed && FlxG.mouse.overlaps(newgame, camera))
 		{
 			FlxG.switchState(new LoadingState());
-			FlxG.sound.play('assets/sounds/blip3.wav');
+			// FlxG.sound.play('assets/sounds/blip3.wav');
 		}
 		else if (FlxG.mouse.pressed && FlxG.mouse.overlaps(continuee, camera))
 		{
 			FlxG.switchState(new LoadingState());
-			FlxG.sound.play('assets/sounds/blip3.wav');
+			FlxG.sound.pause();
 		}
 
 		super.update(elapsed);
